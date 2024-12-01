@@ -4,19 +4,19 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 381491984544.dkr.ecr.us-west-2.amazonaws.com
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 448049790684.dkr.ecr.us-west-2.amazonaws.com
   build:
     commands:
       - echo Building the Docker image...
       - docker build -t chaos-demo .
       - echo Tagging the Docker image...
-      - docker tag chaos-demo:latest 381491984544.dkr.ecr.us-west-2.amazonaws.com/chaos-demo:latest
+      - docker tag chaos-demo:latest 448049790684.dkr.ecr.us-west-2.amazonaws.com/chaos-demo:latest
   post_build:
     commands:
       - echo Pushing the Docker image to Amazon ECR...
-      - docker push 381491984544.dkr.ecr.us-west-2.amazonaws.com/chaos-demo:latest
+      - docker push 448049790684.dkr.ecr.us-west-2.amazonaws.com/chaos-demo:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"chaosDemoContainer","imageUri":"381491984544.dkr.ecr.us-west-2.amazonaws.com/chaos-demo:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"chaosDemoContainer","imageUri":"448049790684.dkr.ecr.us-west-2.amazonaws.com/chaos-demo:latest"}]' > imagedefinitions.json
 
 artifacts:
   files:
